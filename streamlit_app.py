@@ -22,7 +22,8 @@ elif default_csv == 'tesco.csv':
     st.markdown('The dataset is a toy dataset contain frequently purchased grocery items')
 elif default_csv == 'source.csv':
     st.markdown('This is only for my HOMEWORK from [GD人工智慧在生活的應用]')
-    st.markdown('We are going to find out all **frequent itemsets** and **association rules** via ')
+	st.markdown('We are going to find out all **frequent itemsets** and **association rules** via <span style="color:blue">Apriori algorithm</span>')
+	st.markdown('The minimum confidence is 60% and minimum support count is 2')
 
 st.markdown('Here are some sample rows from the dataset')
 csv_file = pd.read_csv(default_csv, header=None, sep="\n")
