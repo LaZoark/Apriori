@@ -12,7 +12,7 @@ st.sidebar.markdown(
 )
 
 default_csv = st.selectbox(
-    "Select one of the sample csv files", ("INTEGRATED-DATASET.csv", "tesco.csv")
+    "Select one of the sample csv files", ("source.csv", "INTEGRATED-DATASET.csv", "tesco.csv")
 )
 
 if default_csv == 'INTEGRATED-DATASET.csv':
@@ -20,6 +20,9 @@ if default_csv == 'INTEGRATED-DATASET.csv':
     Small Business Services (SBS) dataset in the NYC Open Data Sets http://nycopendata.socrata.com/''')
 elif default_csv == 'tesco.csv':
     st.markdown('The dataset is a toy dataset contain frequently purchased grocery items')
+elif default_csv == 'source.csv':
+    st.markdown('This is only for my HOMEWORK from [GD人工智慧在生活的應用]')
+    st.markdown('We are going to find out all **frequent itemsets** and **association rules** via ')
 
 st.markdown('Here are some sample rows from the dataset')
 csv_file = pd.read_csv(default_csv, header=None, sep="\n")
