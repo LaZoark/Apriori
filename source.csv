@@ -1,10 +1,10 @@
-TID	Items
-T1	"A,B,E"
-T2	"B,D"
-T3	"B,C"
-T4	"A,B,D"
-T5	"A,C"
-T6	"B,C"
-T7	"A,C"
-T8	"A,B,C"
-T9	"A,B,C"
+# TID,Items
+T1,A,B,E
+T2,B,D
+T3,B,C
+T4,A,B,D
+T5,A,C
+T6,B,C
+T7,A,C
+T8,A,B,C
+T9,A,B,C

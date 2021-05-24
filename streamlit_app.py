@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from apriori import runApriori, dataFromFile, to_str_results
 
-st.markdown("# Apriori Streamlit")
+st.markdown("# Apriori Streamlit by 陳偉銍")
 
 st.sidebar.markdown(
     """The code attempts to implement the following paper:
@@ -22,12 +22,14 @@ elif default_csv == 'tesco.csv':
     st.markdown('The dataset is a toy dataset contain frequently purchased grocery items')
 elif default_csv == 'source.csv':
     st.markdown('This is only for my HOMEWORK from [GD人工智慧在生活的應用]')
-	st.markdown('We are going to find out all **frequent itemsets** and **association rules** via <span style="color:blue">Apriori algorithm</span>')
-	st.markdown('The minimum confidence is 60% and minimum support count is 2')
+    st.markdown('We are going to find out all **frequent itemsets** and **association rules** via <span style="color: #fb0505;">Apriori algorithm</span>', unsafe_allow_html=True)
+    st.markdown('The minimum confidence is 60% and minimum support count is 2.')
+    # st.markdown('<p style="color: aqua;"> </p>', unsafe_allow_html=True)
 
 st.markdown('Here are some sample rows from the dataset')
-csv_file = pd.read_csv(default_csv, header=None, sep="\n")
-st.write(csv_file[0].str.split("\,", expand=True).head())
+csv_file = pd.read_csv(default_csv, header=None, sep="\n", comment='#')
+# st.write(csv_file[0].str.split("\,", expand=True).head())
+st.write(csv_file[0].str.split("\,", expand=True))
 
 st.markdown('---')
 st.markdown("## Inputs")
@@ -43,8 +45,15 @@ support_helper = ''' > Support(A) = (Number of transactions in which A appears)/
 confidence_helper = ''' > Confidence(A->B) = Support(AUB)/Support(A)') '''
 st.markdown('---')
 
+if default_csv == 'source.csv':
+    st.markdown('minimum confidence is 60%')
+    st.markdown('<span style="color: orange;">minimum support count is 2</span>', unsafe_allow_html=True)
+    minimum_support_helper = ''' > According to the formula, min Support(X)=2, which means we need "0.18" as the threshold."'''
+    st.button('Support(A) = (Number of transactions in which A appears)/(Total Number of Transactions)', help=minimum_support_helper)
+    # st.markdown('<p style="color: aqua;"> </p>', unsafe_allow_html=True)
+
 support = st.slider("Enter the Minimum Support Value", min_value=0.1,
-                    max_value=0.9, value=0.15,
+                    max_value=0.9, value=0.55,
                     help=support_helper)
 
 confidence = st.slider("Enter the Minimum Confidence Value", min_value=0.1,
